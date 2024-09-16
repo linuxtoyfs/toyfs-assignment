@@ -1,0 +1,4 @@
+Toyfs is a very simple filesystem, designed to teach students the basics of filesystem development
+within the Linux kernel.
+
+This is inspired by Steve D. Pate's UXFS filesystem from his book released many moons ago
