@@ -2,3 +2,9 @@ Toyfs is a very simple filesystem, designed to teach students the basics of file
 within the Linux kernel.
 
 This is inspired by Steve D. Pate's UXFS filesystem from his book released many moons ago
+
+** This repository contains broken code, on purpose. **
+
+Do not use it on a production machine.
+
+You have been warned.
