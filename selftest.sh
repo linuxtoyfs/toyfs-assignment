@@ -54,12 +54,12 @@ setup() {
 	passed "build module"
 
 	sudo insmod ./toyfs.ko || failed "insmod"
-	cp $ORIG_IMG $TEST_IMG 
+	cp $ORIG_IMG $TEST_IMG
 	passed "insmod"
 
-	sudo losetup -f $TEST_IMG
+	LOOP_DEV=`sudo losetup -f`
 
-	LOOP_DEV=`sudo losetup | grep toyfs | awk '{print $1}'`
+	sudo losetup $LOOP_DEV $TEST_IMG
 
 	if [ -n $LOOP_DEV ]; then
 		passed "losetup"
@@ -69,6 +69,7 @@ setup() {
 		echo "\tTest failed..."
 		exit 1
 	fi
+
 }
 
 test_mount() {
@@ -175,7 +176,6 @@ test_link() {
 	[ $old_ino = $new_ino ]
 
 	report_test $? "link_2"
-	
 }
 
 test_symlink() {
